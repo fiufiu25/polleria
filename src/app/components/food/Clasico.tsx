@@ -68,7 +68,7 @@ export default function Clasico({enviarCarrito}:EspecialesProps) {
   return (
     <>
       <div className=" my-4  flex justify-start items-center  flex-wrap  gap-5">
-        {clasico?.map((item) => (
+        {clasico?.map((item:any) => (
           <div
            key={item.name}
             style={{ boxShadow: "0px 0px 2px grey" }}

@@ -49,7 +49,7 @@ export default function Combos({enviarCarrito}:CombosProps) {
   return (
     <>
       <div className=" my-4  flex justify-center items-center  flex-wrap  gap-5">
-        {combos?.map((item, index) => (
+        {combos?.map((item:any, index) => (
           <div
             key={index}
             style={{ boxShadow: "0px 0px 2px grey" }}
@@ -72,7 +72,7 @@ export default function Combos({enviarCarrito}:CombosProps) {
               </h3>
               <div className=" flex p-2 items-center  my-3 justify-between w-full">
                 <div>
-                  {item.descripcion.map((des) => (
+                  {item.descripcion.map((des:any) => (
                     <p className="  text-[10px]  lg:text-[18px]"> + {des}</p>
                   ))}
                 </div>
