@@ -1,7 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer utilities {
+  .font-lily-script-one {
+    font-family: 'Lily Script One', cursive; /* Asegúrate de que el nombre sea correcto */
+  }
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -12,16 +16,33 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+
+}
+ .swiper-button-next,
+ .swiper-button-prev {
+  /* Color de fondo (blue-500) */
+  /* color: white !important; Asegúrate de que el texto sea blanco */
+  color: white !important;
+  background-color: rgba(189, 189, 189, 0.944);
+  padding: 0.5rem !important; /* Equivalente a p-2 */
+  transition: background-color 0.3s ease; /* Transición suave */
+  width: 50px !important;
+  height: 50px !important;
+
+  border-radius: 100%; /* Alto del botón */
+  display: flex; /* Para centrar el ícono */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  
+}
+.swiper-button-prev::after{
+  
+  font-size:  25px !important;
+  
+}
+.swiper-button-next::after{
+ font-size:  25px !important;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+

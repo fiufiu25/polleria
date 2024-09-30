@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
+import UxNavbar from "./components/navbar/uxNavbar";
+import { Lily_Script_One} from "next/font/google";
+import UxFooter from "./components/footer/uxFooter";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
+});
+const lilyScriptOne = Lily_Script_One({
+  weight:"400",
+  style:"normal",
+  subsets: ["latin-ext"],
+  variable: "--font-lily-script-one",
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
@@ -26,9 +34,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased ${lilyScriptOne.variable}`}
       >
+        <UxNavbar />
+
         {children}
+        <footer className=" bg-[#333333]">
+        <UxFooter/>
+        <div>
+          <p className=" text-center text-white font-semibold">© Dodos Chiken, Todos los derechos reservados 2024</p>
+        </div>
+        </footer>
+     
       </body>
     </html>
   );
