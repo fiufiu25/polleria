@@ -20,15 +20,15 @@ export default function UxNavbar() {
   ];
   const [abrir, setAbrir] = useState(false);
   const navRef = useRef(null);
-  const handleLinkClick = (event) => {
+  const handleLinkClick = () => {
     
     setAbrir(false); // Cierra el navbar al hacer clic en un enlace
   };
 
-  const handleClickOutside = (event) => {
-    if (navRef.current && !navRef.current.contains(event.target)) {
-      setAbrir(false); // Cierra el navbar al hacer clic fuera de él
-    }
+  const handleClickOutside = (event:MouseEvent) => {
+    if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setAbrir(false); // Cierra el navbar al hacer clic fuera de él
+      }
   };
   useEffect(() => {
     document.addEventListener('click', handleClickOutside); // Escucha clics en el documento
@@ -58,6 +58,7 @@ export default function UxNavbar() {
           {link?.map((item) => {
             return (
               <Link
+              key={ item.name}
                 onClick={handleLinkClick}
                 className="px-5  text-lg font-semibold"
                 href={` /${item.path}`}
@@ -84,6 +85,7 @@ export default function UxNavbar() {
         {link?.map((item) => {
             return (
               <Link
+              key={item.name}
                 className="px-5  text-lg font-semibold"
                 href={` /${item.path}`}
                 onClick={handleLinkClick }

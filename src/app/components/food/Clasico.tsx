@@ -8,8 +8,17 @@ import salchiPollo from "../../assets/Salchipollo.svg";
 import salchipapa from "../../assets/Salchipapa.svg";
 
 import Image from "next/image";
-export default function Clasico({enviarCarrito}) {
-  const clasico = [
+
+interface Clasico {
+  name: string;
+  precio: string;
+  img: string; // Puedes cambiar 'string' si tienes un tipo específico para las imágenes
+}
+interface EspecialesProps {
+  enviarCarrito: (item: Clasico) => void; // La función recibe un objeto de tipo Especial
+}
+export default function Clasico({enviarCarrito}:EspecialesProps) {
+  const clasico:Clasico[] = [
     {
       name: "1/8 de Pollo + Gaseosa personal",
       precio: "9.00",
@@ -61,6 +70,7 @@ export default function Clasico({enviarCarrito}) {
       <div className=" my-4  flex justify-start items-center  flex-wrap  gap-5">
         {clasico?.map((item) => (
           <div
+           key={item.name}
             style={{ boxShadow: "0px 0px 2px grey" }}
             className="  w-full shadow-gray-400 bg-white  md:w-[310px]  p-3 rounded-md"
           >

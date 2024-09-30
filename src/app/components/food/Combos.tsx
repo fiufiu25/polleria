@@ -2,8 +2,18 @@ import panMayo from "../../assets/Guardar_pan_para_mayo.svg";
 import amigoExtra from "../../assets/Amigo_extra.svg"
 import hayParaTodos from "../../assets/Hay_para_todos.svg"
 import Image from "next/image";
-export default function Combos({enviarCarrito}) {
-  const combos = [
+interface Combo {
+  name: string;
+  descripcion: string[];
+  precio: string;
+  img: string; // Cambia si tienes un tipo específico para la imagen
+}
+
+interface CombosProps {
+  enviarCarrito: (item: Combo) => void; // Tipamos la función que recibe un objeto de tipo Combo
+}
+export default function Combos({enviarCarrito}:CombosProps) {
+  const combos:Combo[] = [
     {
       name: " 'Guardar pan para mayo'",
       descripcion: [

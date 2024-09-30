@@ -10,8 +10,17 @@ import mollejita from "../../assets/Mollejita.svg";
 import caldo from "../../assets/Caldo_de_gallina.svg";
 import aguadito from "../../assets/Aguadito.svg";
 import sopaCriolla from "../../assets/Sopa_a_la_criolla.svg";
-export default function Especiales({ enviarCarrito }) {
-  const especiales = [
+interface EspecialesProps {
+  enviarCarrito: (item: Especial) => void; // La función recibe un objeto de tipo Especial
+}
+interface Especial {
+  name: string;
+  precio: string;
+  img: string; // Puedes cambiar 'string' si tienes un tipo específico para las imágenes
+}
+export default function Especiales({ enviarCarrito }:EspecialesProps) {
+
+  const especiales:Especial[] = [
     {
       name: "Arroz Chaufa de pollo + Gaseosa personal",
       precio: "15.00",
