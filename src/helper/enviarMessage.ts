@@ -13,8 +13,7 @@ interface CarritoInteface {
       mensaje += `\n🧾 *Sub Total*: $${subTotal.toFixed(2)}\n`;
   mensaje += `🧾 *IGV*: $${igv.toFixed(2)}\n`;
   mensaje += `💰 *Total a Pagar*: $${totalPagar.toFixed(2)}`;
-  const telefono = '51925221012'; // Número de teléfono con código de país
-  const mensajeCodificado = encodeURIComponent(mensaje); // Codificar el mensaje en formato URL
-  const url = `https://wa.me/${telefono}/?text=${mensajeCodificado}`; // Crear la URL
-  window.open(url); // Abrir la URL en una nueva pestaña o ventana
+  const telefono = '51925221012'; 
+  const mensajeCodificado = encodeURIComponent(mensaje); 
+  const url = `https://wa.me/${telefono}/?text=${mensajeCodificado}`; 
  }
