@@ -63,7 +63,7 @@ export default function Carrito({items,setItems,setOpen}) {
                 <p className="  font-semibold">Total:</p>
               </div>
               <ul className=" p-0 m-0">
-                {items?.map((item, index) => (
+                {items?.map((item:any, index) => (
                   <li
                     key={index}
                     className="flex justify-between  my-1 gap-5 items-center"

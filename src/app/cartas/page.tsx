@@ -21,11 +21,11 @@ export default function page() {
   const [categoria, setCategoria] = useState("Clásicos");
   const [carrito, setCarrito] = useState([]);
   console.log(carrito);
-  const enviarCarrito = (item) => {
-    const verificar = carrito.find((e) => e.name === item.name);
+  const enviarCarrito = (item: any) => {
+    const verificar = carrito.find((e: any) => e.name === item.name);
     if (verificar) {
       setCarrito(
-        carrito.map((e) =>
+        carrito.map((e: any) =>
           e.name === item.name ? { ...e, cantidad: e.cantidad + 1 } : e
         )
       );
@@ -86,22 +86,23 @@ export default function page() {
           </div>
         </div>
       </div>
-      <div onClick={()=>setOpen(true)} className=" xl:hidden fixed right-3 bottom-11 w-[40px] h-[40px]  flex  justify-center  items-center rounded-full bg-white shadow-md z-20">
+      <div
+        onClick={() => setOpen(true)}
+        className=" xl:hidden fixed right-3 bottom-11 w-[40px] h-[40px]  flex  justify-center  items-center rounded-full bg-white shadow-md z-20"
+      >
         {carrito && carrito.length < 1 ? null : (
-          <div  className="  absolute rounded-full  -right-1 -top-1  bg-red-700 w-5 h-5 flex justify-center items-center">
+          <div className="  absolute rounded-full  -right-1 -top-1  bg-red-700 w-5 h-5 flex justify-center items-center">
             <small className="  text-white  font-bold ">{carrito.length}</small>
           </div>
         )}
 
         <IoBag size={20} />
       </div>
-      {
-        open&& <div  className="   fixed  flex justify-center items-center bg-white/90 w-full h-full top-0  p-3 ">
-        
-        <Carrito setOpen={setOpen} items={carrito} setItems={setCarrito} />
-       
-      </div>
-      }
+      {open && (
+        <div className="   fixed  flex justify-center items-center bg-white/90 w-full h-full top-0  p-3 ">
+          <Carrito setOpen={setOpen} items={carrito} setItems={setCarrito} />
+        </div>
+      )}
     </div>
   );
 }
