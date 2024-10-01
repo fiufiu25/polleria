@@ -13,6 +13,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { IoPencil } from "react-icons/io5";
+import Link from "next/link";
 
 export default function page() {
   return (
@@ -31,9 +32,9 @@ export default function page() {
               <p className="font-lily-script-one text-xl text-gray-200 ">
                 “El gallo más gallo en las brasas 🔥 ...”
               </p>
-              <button className=" bg-slate-100/20 px-10 text-lg border-[0.6px] border-white text-white p-1 rounded-l-full rounded-r-full block text-center  ml-auto mr-auto my-2">
+              <Link href={"/cartas"} className=" bg-slate-100/20 px-10 text-lg border-[0.6px] border-white text-white p-1 rounded-l-full rounded-r-full block text-center  ml-auto mr-auto my-2">
                 Ver carta
-              </button>
+              </Link>
             </div>
           </div>
         </div>

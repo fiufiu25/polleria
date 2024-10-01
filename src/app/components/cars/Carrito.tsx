@@ -47,6 +47,8 @@ export default function Carrito({items,setItems,setOpen}:any) {
 const igv = subTotal * 0.18; // Calcula el IGV (por ejemplo, 18%)
 const totalPagar = subTotal + igv;
  mensajeWhatsapp(items,subTotal,igv,totalPagar)
+     setItems([])
+
 
   }
   return (
