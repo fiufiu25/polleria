@@ -71,7 +71,7 @@ export default function Especiales({ enviarCarrito }:EspecialesProps) {
     <>
       <div className=" my-4  flex justify-start items-center  flex-wrap  gap-5">
         {especiales?.map((item:any) => (
-          <div
+          <div key={item.name}
             style={{ boxShadow: "0px 0px 2px grey" }}
             className="  w-full shadow-gray-400 bg-white  md:w-[310px]   p-3 rounded-md"
           >

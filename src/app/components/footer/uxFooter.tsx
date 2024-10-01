@@ -4,10 +4,10 @@ import logo from "../../assets/LOGO.svg"
 import Image from 'next/image'
 export default function UxFooter() {
   return (
-   <div className=' p-2 py-5 text-white flex  gap-3  justify-center flex-wrap lg:flex-nowrap lg:justify-between  items-start'>
-    <div className=' flex flex-wrap justify-center lg:flex-nowrap  gap-10'>
+   <div className='  p-10 md:px-2 py-5 text-white flex  gap-3  justify-center flex-wrap lg:flex-nowrap lg:justify-between  items-start'>
+    <div className=' flex flex-wrap justify-between items-start lg:flex-nowrap  gap-10'>
     <div>
-        <div className=' flex    items-center gap-1 mb-2'>
+        <div className=' flex    items-center   gap-1 mb-2'>
             <Image  src={logo} alt="logo"  width={30} height={30}/>
             <p className='font-lily-script-one font-bold'>Dodo Chiken</p>
         </div>
@@ -36,7 +36,7 @@ export default function UxFooter() {
           
         </div>
     </div>
-    <div className=' flex gap-2'>
+    <div className=' flex-1  md:flex-initial flex  gap-6  justify-between items-start'>
     <div>
         <p>LIBRO DE</p>
         <p className=' font-bold mb-2'>RECLAMOS</p>

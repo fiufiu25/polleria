@@ -5,7 +5,8 @@ import Image from "next/image";
 import logo from "../../assets/LOGO.svg";
 import { IoClose, IoTrash } from "react-icons/io5";
 import  carrito from "../../assets/carrito.png"
-interface Carrtio {
+import { mensajeWhatsapp } from "@/helper/enviarMessage";
+interface CarritoInteface {
   name: string;
   precio: number;
   cantidad:number;
@@ -32,13 +33,21 @@ export default function Carrito({items,setItems,setOpen}:any) {
     setItems(newItems);
   };
   const deleteFood=(name:string)=>{
-     const datosActualizado= items.filter((item:Carrtio)=>item.name!==name)
+     const datosActualizado= items.filter((item:CarritoInteface)=>item.name!==name)
      setItems(datosActualizado)
   }
 
   const calculateTotal = () => {
-    return items.reduce((total:number, item:Carrtio) => total + (item.precio) * item.cantidad, 0);
+    return items.reduce((total:number, item:CarritoInteface) => total + (item.precio) * item.cantidad, 0);
   };
+
+  const  enviarCompra=()=>{
+    const subTotal = items.reduce((total:number, item:CarritoInteface) => total + (item.precio) * item.cantidad, 0);
+const igv = subTotal * 0.18; // Calcula el IGV (por ejemplo, 18%)
+const totalPagar = subTotal + igv;
+ mensajeWhatsapp(items,subTotal,igv,totalPagar)
+
+  }
   return (
     <>
       <div className=" flex relative  flex-col  lg:pl-10  xl-pl-24   w-[350px]  lg:min-w-[300px] justify-en bg-white items-center">
@@ -114,7 +123,7 @@ export default function Carrito({items,setItems,setOpen}:any) {
                   Total a Pagar: ${(calculateTotal() * 1.18).toFixed(2)}
                 </p>
               </div>
-              <button className="bg-red-500 hover:bg-red-700 text-white font-bold block mr-auto  ml-auto px-10 py-3 rounded-md mt-4">
+              <button onClick={enviarCompra} className="bg-red-500 hover:bg-red-700 text-white font-bold block mr-auto  ml-auto px-10 py-3 rounded-md mt-4">
                 Comprar
               </button>
             </div>
