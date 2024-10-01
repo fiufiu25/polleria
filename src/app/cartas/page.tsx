@@ -10,6 +10,13 @@ import Image from "next/image";
 import Bebidas from "../components/food/Bebidas";
 import Clasico from "../components/food/Clasico";
 import { IoBag, IoCar, IoClose } from "react-icons/io5";
+interface Carrtio {
+  name: string;
+  precio: string;
+  cantidad:number;
+  descripcion?:string[]
+  img: string; // Puedes cambiar 'string' si tienes un tipo específico para las imágenes
+}
 export default function page() {
   const cartas = [
     { name: "Clásicos" },
@@ -19,18 +26,17 @@ export default function page() {
   ];
   const [open, setOpen] = useState(false);
   const [categoria, setCategoria] = useState("Clásicos");
-  const [carrito, setCarrito] = useState([]);
-  console.log(carrito);
-  const enviarCarrito = (item: any) => {
-    const verificar = carrito.find((e: any) => e.name === item.name);
+  const [carrito, setCarrito] = useState <Carrtio[]>([]);
+
+  const enviarCarrito = (item:any) => {
+    const verificar = carrito.find((e) => e?.name === item.name);
     if (verificar) {
       setCarrito(
-        carrito.map((e: any) =>
+        carrito.map((e:Carrtio) =>
           e.name === item.name ? { ...e, cantidad: e.cantidad + 1 } : e
         )
       );
     } else {
-      // Si el producto no existe, agregarlo con cantidad 1
       setCarrito([...carrito, { ...item, cantidad: 1 }]);
     }
   };
