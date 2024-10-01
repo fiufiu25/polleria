@@ -55,7 +55,7 @@ export default function Combos({enviarCarrito}:CombosProps) {
             style={{ boxShadow: "0px 0px 2px grey" }}
             className="  w-[430px] lg:w-full relative shadow-gray-400 flex  flex-col md:flex-row bg-white   justify-between items-center    rounded-md"
           >
-            <div className=" relative w-full h-[180px] md:w-[190px] lg:w-[400px] bg-blue-300">
+            <div className=" relative w-full h-[180px] md:w-[190px] lg:w-[400px]">
             <Image
              objectFit="cover"
               src={item.img}
