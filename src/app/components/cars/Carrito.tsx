@@ -5,16 +5,23 @@ import Image from "next/image";
 import logo from "../../assets/LOGO.svg";
 import { IoClose, IoTrash } from "react-icons/io5";
 import  carrito from "../../assets/carrito.png"
-export default function Carrito({items,setItems,setOpen}) {
+interface Carrtio {
+  name: string;
+  precio: number;
+  cantidad:number;
+  descripcion?:string[]
+  img: string; // Puedes cambiar 'string' si tienes un tipo específico para las imágenes
+}
+export default function Carrito({items,setItems,setOpen}:any) {
  
 
-  const increaseQuantity = (index) => {
+  const increaseQuantity = (index:number) => {
     const newItems = [...items];
     newItems[index].cantidad++;
     setItems(newItems);
   };
 
-  const decreaseQuantity = (index) => {
+  const decreaseQuantity = (index:number) => {
     const newItems = [...items];
     if (newItems[index].cantidad > 1) {
       newItems[index].cantidad--;
@@ -24,13 +31,13 @@ export default function Carrito({items,setItems,setOpen}) {
     }
     setItems(newItems);
   };
-  const deleteFood=(name)=>{
-     const datosActualizado= items.filter(item=>item.name!==name)
+  const deleteFood=(name:string)=>{
+     const datosActualizado= items.filter((item:Carrtio)=>item.name!==name)
      setItems(datosActualizado)
   }
 
   const calculateTotal = () => {
-    return items.reduce((total, item) => total + item.precio * item.cantidad, 0);
+    return items.reduce((total:number, item:Carrtio) => total + (item.precio) * item.cantidad, 0);
   };
   return (
     <>
@@ -63,7 +70,7 @@ export default function Carrito({items,setItems,setOpen}) {
                 <p className="  font-semibold">Total:</p>
               </div>
               <ul className=" p-0 m-0">
-                {items?.map((item:any, index) => (
+                {items?.map((item:any, index:number) => (
                   <li
                     key={index}
                     className="flex justify-between  my-1 gap-5 items-center"

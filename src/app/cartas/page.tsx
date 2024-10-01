@@ -12,7 +12,7 @@ import Clasico from "../components/food/Clasico";
 import { IoBag, IoCar, IoClose } from "react-icons/io5";
 interface Carrtio {
   name: string;
-  precio: string;
+  precio: number;
   cantidad:number;
   descripcion?:string[]
   img: string; // Puedes cambiar 'string' si tienes un tipo específico para las imágenes
@@ -79,7 +79,7 @@ export default function page() {
           </div>
         </div>
         <div className=" hidden xl:block  xl:col-span-2 ">
-          <Carrito items={carrito} setItems={setCarrito} />
+          <Carrito  setOpen ={setOpen} items={carrito} setItems={setCarrito} />
           <div className=" my-10 flex place-content-center">
             <Image
               alt="promocion"

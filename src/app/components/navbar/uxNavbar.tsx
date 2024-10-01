@@ -19,14 +19,14 @@ export default function UxNavbar() {
     { name: "Tiendas", path: "tiendas" },
   ];
   const [abrir, setAbrir] = useState(false);
-  const navRef = useRef(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
   const handleLinkClick = () => {
     
     setAbrir(false); // Cierra el navbar al hacer clic en un enlace
   };
 
   const handleClickOutside = (event:MouseEvent) => {
-    if (navRef.current && !navRef.current.contains(event.target as Node)) {
+    if (navRef.current && !navRef.current?.contains(event.target as Node)) {
         setAbrir(false); // Cierra el navbar al hacer clic fuera de él
       }
   };
@@ -55,7 +55,7 @@ export default function UxNavbar() {
           }}
           className="  absolute p-5  justify-center shadow-md flex-col gap-5  bg-white  h-[400px] w-full z-20 top-0 left-0  flex items-center lg:hidden "
         >
-          {link?.map((item) => {
+          {link?.map((item:any) => {
             return (
               <Link
               key={ item.name}
@@ -82,7 +82,7 @@ export default function UxNavbar() {
           </div>
         </nav>
         <nav className=" hidden  lg:flex">
-        {link?.map((item) => {
+        {link?.map((item:any) => {
             return (
               <Link
               key={item.name}

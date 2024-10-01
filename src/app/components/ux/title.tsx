@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Title({title,className}) {
+export default function Title({title,className}:any) {
   return (
    <>
    <div className=' my-3'>
