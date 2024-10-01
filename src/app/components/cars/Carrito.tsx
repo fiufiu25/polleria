@@ -42,6 +42,7 @@ export default function Carrito({items,setItems,setOpen}:any) {
   };
 
   const  enviarCompra=()=>{
+     console.log("wpp")
     const subTotal = items.reduce((total:number, item:CarritoInteface) => total + (item.precio) * item.cantidad, 0);
 const igv = subTotal * 0.18; // Calcula el IGV (por ejemplo, 18%)
 const totalPagar = subTotal + igv;

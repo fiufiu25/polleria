@@ -16,4 +16,5 @@ interface CarritoInteface {
   const telefono = '51925221012'; 
   const mensajeCodificado = encodeURIComponent(mensaje); 
   const url = `https://wa.me/${telefono}/?text=${mensajeCodificado}`; 
+  window.open(url);
  }

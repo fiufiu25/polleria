@@ -105,7 +105,7 @@ export default function page() {
         <IoBag size={20} />
       </div>
       {open && (
-        <div className="   fixed  flex justify-center items-center bg-white/90 w-full h-full top-0  p-3 ">
+        <div className="   fixed  flex justify-center items-center bg-white/90 w-full h-full top-0  p-3 xl:hidden">
           <Carrito setOpen={setOpen} items={carrito} setItems={setCarrito} />
         </div>
       )}
